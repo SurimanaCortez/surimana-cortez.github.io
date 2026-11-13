@@ -437,7 +437,7 @@
     // 4. CONFIGURACIÓN DEL FORMULARIO.
     // IMPORTANTE: reemplaza este texto por la URL de tu Aplicación web
     // de Google Apps Script, que termina normalmente en /exec.
-    const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbyS5IeTP9RtTuPZ610RJY1mNoqPVYHDKQch3tlgBwCii23rcCVnPhI8GbcaoQ9lzE56/exec";
+    const URL_APPS_SCRIPT = "PEGA_AQUI_LA_URL_DE_TU_APLICACION_WEB";
 
     const formulario = document.getElementById("formulario-contacto");
     const estadoFormulario = document.getElementById("estado-formulario");
@@ -454,7 +454,7 @@
         return;
       }
 
-      if (URL_APPS_SCRIPT === "https://script.google.com/macros/s/AKfycbyS5IeTP9RtTuPZ610RJY1mNoqPVYHDKQch3tlgBwCii23rcCVnPhI8GbcaoQ9lzE56/exec") {
+      if (URL_APPS_SCRIPT === "PEGA_AQUI_LA_URL_DE_TU_APLICACION_WEB") {
         estadoFormulario.textContent = "Primero debes pegar la URL de Google Apps Script en el código.";
         estadoFormulario.className = "mensaje-error";
         return;
