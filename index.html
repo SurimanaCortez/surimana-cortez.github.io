@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio profesional de Surimana Cortez Choque, Contadora General.">
+  <meta name="theme-color" content="#10243a">
+  <title>Surimana Cortez Choque | Contadora General</title>
+
+  <style>
+    /* =========================
+       1. ESTILOS GENERALES
+       ========================= */
+    :root {
+      --azul: #10243a;
+      --azul-claro: #1d3a57;
+      --dorado: #c7a66a;
+      --fondo: #f5f7fa;
+      --blanco: #ffffff;
+      --texto: #243447;
+      --suave: #64748b;
+      --borde: #e2e8f0;
+      --sombra: 0 14px 40px rgba(16, 36, 58, .09);
+      --radio: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--texto);
+      background: var(--fondo);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    .contenedor { width: min(1100px, 90%); margin: 0 auto; }
+    .seccion { padding: 88px 0; }
+    .titulo-seccion { color: var(--azul); font-size: clamp(1.8rem, 4vw, 2.45rem); margin-bottom: 12px; }
+    .subtitulo-seccion { color: var(--suave); max-width: 680px; margin-bottom: 38px; }
+    .acento { color: var(--dorado); }
+    .etiqueta {
+      display: inline-block; color: var(--dorado); font-size: .78rem;
+      font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px;
+    }
+
+    /* =========================
+       2. BARRA DE NAVEGACIÓN
+       ========================= */
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(16, 36, 58, .97); color: var(--blanco);
+      box-shadow: 0 5px 20px rgba(0,0,0,.12);
+    }
+    .navegacion {
+      min-height: 74px; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .logo { font-weight: 800; font-size: 1.08rem; letter-spacing: .04em; }
+    .logo span { color: var(--dorado); }
+    .enlaces { display: flex; align-items: center; gap: 25px; list-style: none; }
+    .enlaces a { font-size: .91rem; color: #e8edf3; transition: color .2s; }
+    .enlaces a:hover, .enlaces a:focus { color: var(--dorado); }
+    .boton-menu {
+      display: none; color: white; background: transparent; border: 1px solid #526477;
+      border-radius: 9px; padding: 7px 11px; cursor: pointer; font-size: 1.35rem;
+    }
+
+    /* =========================
+       3. PORTADA / INICIO
+       ========================= */
+    .inicio {
+      color: white; min-height: 590px; display: flex; align-items: center;
+      background:
+        radial-gradient(circle at 85% 25%, rgba(199,166,106,.18), transparent 28%),
+        linear-gradient(125deg, #10243a, #1d3a57);
+      overflow: hidden;
+    }
+    .inicio-contenido {
+      display: grid; grid-template-columns: 1.35fr .65fr;
+      align-items: center; gap: 55px; padding-top: 65px; padding-bottom: 65px;
+    }
+    .inicio h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.08; margin-bottom: 18px; }
+    .inicio p { color: #d7e0e9; font-size: 1.08rem; max-width: 610px; margin-bottom: 28px; }
+    .boton {
+      display: inline-block; border: 0; border-radius: 999px; padding: 13px 23px;
+      font-weight: 700; cursor: pointer; transition: transform .2s, background .2s;
+    }
+    .boton:hover { transform: translateY(-2px); }
+    .boton-dorado { background: var(--dorado); color: #172b40; }
+    .boton-contorno { border: 1px solid rgba(255,255,255,.55); color: white; margin-left: 10px; }
+    .foto-perfil {
+      width: min(270px, 100%); aspect-ratio: 1; margin: auto;
+      border-radius: 50%; border: 7px solid rgba(199,166,106,.8);
+      background: linear-gradient(145deg, #e9edf2, #cbd5e1);
+      display: grid; place-items: center; color: var(--azul);
+      font-size: 5rem; font-weight: 800; box-shadow: 0 25px 60px rgba(0,0,0,.25);
+      overflow: hidden;
+    }
+    /* Si tienes una fotografía, reemplaza el bloque SC por:
+       <img src="foto.jpg" alt="Fotografía de Surimana Cortez Choque"> */
+    .foto-perfil img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* =========================
+       4. SOBRE MÍ
+       ========================= */
+    .sobre-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 35px; align-items: start; }
+    .panel {
+      background: var(--blanco); padding: 30px; border-radius: var(--radio);
+      box-shadow: var(--sombra); border: 1px solid var(--borde);
+    }
+    .panel p + p { margin-top: 14px; }
+    .dato { border-left: 3px solid var(--dorado); padding: 5px 0 5px 17px; margin-bottom: 18px; }
+    .dato strong { display: block; color: var(--azul); }
+
+    /* =========================
+       5. EXPERIENCIA Y FORMACIÓN
+       ========================= */
+    .fondo-blanco { background: var(--blanco); }
+    .linea-tiempo { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .item-tiempo {
+      padding: 26px; border: 1px solid var(--borde); border-radius: var(--radio);
+      background: var(--fondo); position: relative;
+    }
+    .item-tiempo::before {
+      content: ""; position: absolute; top: 28px; left: -1px; width: 4px; height: 45px;
+      background: var(--dorado); border-radius: 0 5px 5px 0;
+    }
+    .item-tiempo h3 { color: var(--azul); margin: 5px 0 8px; }
+    .fecha { color: #9a773c; font-weight: 700; font-size: .88rem; }
+
+    /* =========================
+       6. HABILIDADES
+       ========================= */
+    .habilidades-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .habilidad {
+      background: white; border: 1px solid var(--borde); padding: 20px;
+      border-radius: 14px; display: flex; align-items: center; gap: 13px;
+    }
+    .icono {
+      width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center;
+      border-radius: 12px; background: #f4ecdc; color: #8d6b34; font-weight: 800;
+    }
+
+    /* =========================
+       7. CURSOS Y ACTIVIDADES
+       ========================= */
+    .proyectos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .tarjeta {
+      background: white; padding: 27px; border-radius: var(--radio);
+      border: 1px solid var(--borde); box-shadow: var(--sombra);
+    }
+    .tarjeta h3 { color: var(--azul); margin: 10px 0 8px; }
+    .tarjeta .marca { color: #9a773c; font-size: .82rem; font-weight: 700; }
+    .nota { font-size: .88rem; color: var(--suave); margin-top: 18px; }
+
+    /* =========================
+       8. CONTACTO
+       ========================= */
+    .contacto-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px; }
+    .contacto-dato { margin: 18px 0; overflow-wrap: anywhere; }
+    .contacto-dato strong { display: block; color: var(--azul); }
+    form { display: grid; gap: 15px; }
+    label { display: block; color: var(--azul); font-weight: 700; margin-bottom: 6px; }
+    input, textarea {
+      width: 100%; padding: 13px 14px; border: 1px solid #cbd5e1;
+      border-radius: 10px; background: #fff; color: var(--texto); outline: none;
+    }
+    input:focus, textarea:focus { border-color: var(--dorado); box-shadow: 0 0 0 3px rgba(199,166,106,.18); }
+    textarea { min-height: 140px; resize: vertical; }
+    #estado-formulario { min-height: 25px; font-weight: 700; }
+    .mensaje-exito { color: #147344; }
+    .mensaje-error { color: #b42318; }
+    .aviso-privacidad { color: var(--suave); font-size: .82rem; }
+
+    /* =========================
+       9. PIE DE PÁGINA
+       ========================= */
+    footer { background: var(--azul); color: #d7e0e9; text-align: center; padding: 25px 0; }
+    footer span { color: var(--dorado); }
+
+    /* =========================
+       10. ANIMACIONES AL DESPLAZARSE
+       ========================= */
+    .revelar { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .revelar.visible { opacity: 1; transform: translateY(0); }
+
+    /* =========================
+       11. DISEÑO RESPONSIVE / CELULARES
+       ========================= */
+    @media (max-width: 800px) {
+      .boton-menu { display: block; }
+      .enlaces {
+        display: none; position: absolute; top: 74px; left: 0; right: 0;
+        background: var(--azul); padding: 20px 5%; flex-direction: column;
+        align-items: flex-start; gap: 17px; border-top: 1px solid #40546a;
+      }
+      .enlaces.abierto { display: flex; }
+      .inicio-contenido, .sobre-grid, .contacto-grid { grid-template-columns: 1fr; }
+      .inicio-contenido { text-align: center; gap: 35px; }
+      .inicio p { margin-left: auto; margin-right: auto; }
+      .foto-perfil { width: 205px; grid-row: 1; }
+    }
+    @media (max-width: 560px) {
+      .seccion { padding: 65px 0; }
+      .linea-tiempo, .habilidades-grid, .proyectos-grid { grid-template-columns: 1fr; }
+      .boton-contorno { margin: 12px 0 0; }
+      .panel { padding: 23px; }
+      .inicio { min-height: auto; }
+    }
+
+    /* Respeta la preferencia del visitante por menos movimiento. */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .revelar { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- MENÚ PRINCIPAL -->
+  <header>
+    <nav class="contenedor navegacion" aria-label="Menú principal">
+      <a class="logo" href="#inicio">SURIMANA <span>CORTEZ</span></a>
+      <button class="boton-menu" id="boton-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="enlaces">☰</button>
+      <ul class="enlaces" id="enlaces">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyectos">Cursos y proyectos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- INICIO -->
+    <section class="inicio" id="inicio">
+      <div class="contenedor inicio-contenido">
+        <div>
+          <span class="etiqueta">Portafolio profesional</span>
+          <h1>Surimana<br><span class="acento">Cortez Choque</span></h1>
+          <p>Contadora General | Egresada de Técnico Universitario Superior en Contabilidad General. Responsable, organizada y con disposición para aprender y desarrollarme en el área contable y administrativa.</p>
+          <a class="boton boton-dorado" href="#sobre-mi">Conóceme</a>
+          <a class="boton boton-contorno" href="#contacto">Contáctame</a>
+        </div>
+        <div class="foto-perfil" aria-label="Espacio para fotografía de perfil">SC</div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="seccion" id="sobre-mi">
+      <div class="contenedor revelar">
+        <span class="etiqueta">Presentación</span>
+        <h2 class="titulo-seccion">Sobre mí</h2>
+        <p class="subtitulo-seccion">Mi formación, motivación y orientación profesional.</p>
+        <div class="sobre-grid">
+          <article class="panel">
+            <p>Soy egresada de Técnico Universitario Superior en Contabilidad General de la Universidad Católica Boliviana “San Pablo”. Cuento con formación en contabilidad, análisis e interpretación de estados financieros, registro de operaciones contables y conocimientos tributarios.</p>
+            <p>Me considero una persona responsable y organizada, con disposición para aprender y desarrollarme profesionalmente en el área contable y administrativa.</p>
+          </article>
+          <aside class="panel">
+            <div class="dato"><strong>Área de formación</strong>Contabilidad general</div>
+            <div class="dato"><strong>Orientación</strong>Contable y administrativa</div>
+            <div class="dato"><strong>Institución</strong>Universidad Católica Boliviana “San Pablo”</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA Y FORMACIÓN -->
+    <section class="seccion fondo-blanco" id="experiencia">
+      <div class="contenedor revelar">
+        <span class="etiqueta">Trayectoria</span>
+        <h2 class="titulo-seccion">Experiencia y formación</h2>
+        <p class="subtitulo-seccion">Formación académica y experiencia práctica universitaria descritas en mi hoja de vida.</p>
+        <div class="linea-tiempo">
+          <article class="item-tiempo">
+            <span class="fecha">2026 · Formación académica</span>
+            <h3>Técnico Universitario Superior en Contabilidad General</h3>
+            <p>Universidad Católica Boliviana “San Pablo”. Formación en contabilidad general, análisis e interpretación de estados financieros y costos. Manejo de principios de contabilidad generalmente aceptados y normativa contable y tributaria vigente en Bolivia.</p>
+          </article>
+          <article class="item-tiempo">
+            <span class="fecha">2026 · Formación práctica</span>
+            <h3>Formación Práctica Universitaria</h3>
+            <p>Universidad Católica Boliviana “San Pablo”. Prácticas contables en Contabilidad General, Costos y Análisis e Interpretación de los Estados Financieros. Elaboración de casos prácticos de registro de operaciones, principios contables y estados financieros durante la formación académica.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="seccion" id="habilidades">
+      <div class="contenedor revelar">
+        <span class="etiqueta">Conocimientos</span>
+        <h2 class="titulo-seccion">Habilidades</h2>
+        <p class="subtitulo-seccion">Conocimientos y competencias mencionados en mi hoja de vida.</p>
+        <div class="habilidades-grid">
+          <div class="habilidad"><span class="icono">01</span><span>Registro contable y elaboración de asientos de Libro Diario.</span></div>
+          <div class="habilidad"><span class="icono">02</span><span>Análisis e interpretación de estados financieros.</span></div>
+          <div class="habilidad"><span class="icono">03</span><span>Conocimientos básicos de normativa tributaria boliviana.</span></div>
+          <div class="habilidad"><span class="icono">04</span><span>Contabilidad general y costos.</span></div>
+          <div class="habilidad"><span class="icono">05</span><span>Principios de contabilidad generalmente aceptados.</span></div>
+          <div class="habilidad"><span class="icono">06</span><span>Normativa contable y tributaria vigente en Bolivia.</span></div>
+        </div>
+        <div class="panel" style="margin-top:22px">
+          <h3 style="color:var(--azul); margin-bottom:12px">Idiomas</h3>
+          <p><strong>Español:</strong> Nativo &nbsp; · &nbsp; <strong>Inglés:</strong> Básico A1 &nbsp; · &nbsp; <strong>Aymara:</strong> Básico</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURSOS / PROYECTOS -->
+    <section class="seccion fondo-blanco" id="proyectos">
+      <div class="contenedor revelar">
+        <span class="etiqueta">Formación complementaria</span>
+        <h2 class="titulo-seccion">Cursos y actividades académicas</h2>
+        <p class="subtitulo-seccion">Esta sección presenta cursos y prácticas formativas; no se atribuyen proyectos laborales independientes que no figuran en la hoja de vida.</p>
+        <div class="proyectos-grid">
+          <article class="tarjeta">
+            <span class="marca">UNIVERSIDAD PÚBLICA DE EL ALTO · 2026</span>
+            <h3>Seminario del Ciclo Contable</h3>
+            <p>Seminario de la Facultad de Ciencias Económicas y Empresariales.</p>
+          </article>
+          <article class="tarjeta">
+            <span class="marca">UNIVERSIDAD CATÓLICA BOLIVIANA “SAN PABLO” · 2025</span>
+            <h3>Curso de Cajero Bancario</h3>
+            <p>Curso de formación complementaria indicado en mi hoja de vida.</p>
+          </article>
+          <article class="tarjeta">
+            <span class="marca">FORMACIÓN PRÁCTICA UNIVERSITARIA · 2026</span>
+            <h3>Casos prácticos contables</h3>
+            <p>Elaboración de casos prácticos de registro de operaciones contables, principios contables y estados financieros durante la formación académica.</p>
+          </article>
+          <article class="tarjeta">
+            <span class="marca">ÁREA DE FORMACIÓN</span>
+            <h3>Contabilidad, costos y estados financieros</h3>
+            <p>Prácticas formativas en Contabilidad General, Costos y Análisis e Interpretación de Estados Financieros.</p>
+          </article>
+        </div>
+        <p class="nota">Nota: las actividades descritas corresponden a formación académica y práctica universitaria.</p>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="seccion" id="contacto">
+      <div class="contenedor revelar">
+        <span class="etiqueta">Conversemos</span>
+        <h2 class="titulo-seccion">Contacto</h2>
+        <p class="subtitulo-seccion">Puedes comunicarte conmigo mediante los datos de contacto o enviarme un mensaje con el formulario.</p>
+        <div class="contacto-grid">
+          <div class="panel">
+            <div class="contacto-dato"><strong>Teléfono</strong><a href="tel:+59177538133">+591 77538133</a></div>
+            <div class="contacto-dato"><strong>Correo electrónico</strong><a href="mailto:surimanacortez@gmail.com">surimanacortez@gmail.com</a></div>
+            <div class="contacto-dato"><strong>Dirección</strong>Av. Ballivián #31, Puerto Mayor de Guaqui</div>
+          </div>
+          <div class="panel">
+            <form id="formulario-contacto">
+              <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required minlength="2" maxlength="100">
+              </div>
+              <div>
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required maxlength="150">
+              </div>
+              <div>
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..." required minlength="5" maxlength="3000"></textarea>
+              </div>
+              <button class="boton boton-dorado" id="boton-enviar" type="submit">Enviar mensaje</button>
+              <p id="estado-formulario" role="status" aria-live="polite"></p>
+              <p class="aviso-privacidad">Al enviar, tus datos se guardarán en una hoja de cálculo de Google administrada por la titular de esta página.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <p>© <span id="anio"></span> <span>Surimana Cortez Choque</span> · Portafolio profesional</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ==========================================================
+       JAVASCRIPT: MENÚ MÓVIL, ANIMACIONES Y FORMULARIO
+       ========================================================== */
+
+    // 1. Mostrar u ocultar el menú cuando se utiliza un celular.
+    const botonMenu = document.getElementById("boton-menu");
+    const enlaces = document.getElementById("enlaces");
+
+    botonMenu.addEventListener("click", () => {
+      const estaAbierto = enlaces.classList.toggle("abierto");
+      botonMenu.setAttribute("aria-expanded", String(estaAbierto));
+      botonMenu.setAttribute("aria-label", estaAbierto ? "Cerrar menú" : "Abrir menú");
+      botonMenu.textContent = estaAbierto ? "✕" : "☰";
+    });
+
+    // Al pulsar un enlace, cerrar el menú en pantallas pequeñas.
+    enlaces.querySelectorAll("a").forEach((enlace) => {
+      enlace.addEventListener("click", () => {
+        enlaces.classList.remove("abierto");
+        botonMenu.setAttribute("aria-expanded", "false");
+        botonMenu.setAttribute("aria-label", "Abrir menú");
+        botonMenu.textContent = "☰";
+      });
+    });
+
+    // 2. Animar las secciones suavemente cuando aparecen al bajar.
+    const elementosRevelar = document.querySelectorAll(".revelar");
+
+    if ("IntersectionObserver" in window) {
+      const observador = new IntersectionObserver((entradas, observer) => {
+        entradas.forEach((entrada) => {
+          if (entrada.isIntersecting) {
+            entrada.target.classList.add("visible");
+            observer.unobserve(entrada.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      elementosRevelar.forEach((elemento) => observador.observe(elemento));
+    } else {
+      // Alternativa para navegadores antiguos.
+      elementosRevelar.forEach((elemento) => elemento.classList.add("visible"));
+    }
+
+    // 3. Mostrar automáticamente el año actual en el pie de página.
+    document.getElementById("anio").textContent = new Date().getFullYear();
+
+    // 4. CONFIGURACIÓN DEL FORMULARIO.
+    // IMPORTANTE: reemplaza este texto por la URL de tu Aplicación web
+    // de Google Apps Script, que termina normalmente en /exec.
+    const URL_APPS_SCRIPT = "PEGA_AQUI_LA_URL_DE_TU_APLICACION_WEB";
+
+    const formulario = document.getElementById("formulario-contacto");
+    const estadoFormulario = document.getElementById("estado-formulario");
+    const botonEnviar = document.getElementById("boton-enviar");
+
+    formulario.addEventListener("submit", async (evento) => {
+      evento.preventDefault(); // Evita que el navegador recargue la página.
+      estadoFormulario.textContent = "";
+      estadoFormulario.className = "";
+
+      // Validación adicional en JavaScript.
+      if (!formulario.checkValidity()) {
+        formulario.reportValidity();
+        return;
+      }
+
+      if (URL_APPS_SCRIPT === "PEGA_AQUI_LA_URL_DE_TU_APLICACION_WEB") {
+        estadoFormulario.textContent = "Primero debes pegar la URL de Google Apps Script en el código.";
+        estadoFormulario.className = "mensaje-error";
+        return;
+      }
+
+      const datos = {
+        nombre: document.getElementById("nombre").value.trim(),
+        correo: document.getElementById("correo").value.trim(),
+        mensaje: document.getElementById("mensaje").value.trim()
+      };
+
+      if (datos.nombre.length < 2 || datos.mensaje.length < 5) {
+        estadoFormulario.textContent = "Revisa el nombre y el mensaje antes de enviar.";
+        estadoFormulario.className = "mensaje-error";
+        return;
+      }
+
+      botonEnviar.disabled = true;
+      botonEnviar.textContent = "Enviando...";
+
+      try {
+        // Se usa text/plain para evitar una solicitud CORS de preflight.
+        const respuesta = await fetch(URL_APPS_SCRIPT, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(datos),
+          redirect: "follow"
+        });
+
+        if (!respuesta.ok) {
+          throw new Error("El servidor no pudo recibir el mensaje.");
+        }
+
+        const resultado = await respuesta.json();
+        if (resultado.resultado !== "exito") {
+          throw new Error(resultado.mensaje || "No se pudo guardar el mensaje.");
+        }
+
+        estadoFormulario.textContent = "¡Mensaje enviado!";
+        estadoFormulario.className = "mensaje-exito";
+        formulario.reset();
+      } catch (error) {
+        console.error("Error al enviar el formulario:", error);
+        estadoFormulario.textContent = "No se pudo confirmar el envío. Verifica la URL y la implementación de Apps Script e inténtalo nuevamente.";
+        estadoFormulario.className = "mensaje-error";
+      } finally {
+        botonEnviar.disabled = false;
+        botonEnviar.textContent = "Enviar mensaje";
+      }
+    });
+  </script>
+</body>
+</html>
