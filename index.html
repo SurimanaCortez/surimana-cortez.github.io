@@ -329,7 +329,7 @@
           </div>
           <div class="tarjeta revelar">
             <!-- IMPORTANTE: el formulario envía los datos a Apps Script mediante un iframe oculto -->
-            <form id="formulario" action="PEGA_AQUI_TU_URL_DE_APPS_SCRIPT" method="POST" target="respuestaAppsScript">
+            <form id="formulario" action="https://script.google.com/macros/s/AKfycbwJM9I_WS_nP4X4vfAAvsPRdsYMpqyk5rcfszUUMMCtYhaisrULmzYZAt4qVU3NaT2x/exec" method="POST" target="respuestaAppsScript">
               <div class="campo">
                 <label for="nombre">Nombre</label>
                 <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" minlength="2" maxlength="100" required>
@@ -406,7 +406,7 @@
 
     formulario.addEventListener("submit", evento => {
       // Evita enviar si la URL de Apps Script todavía no fue configurada.
-      if (formulario.action.includes("PEGA_AQUI_TU_URL_DE_APPS_SCRIPT")) {
+      if (formulario.action.includes("https://script.google.com/macros/s/AKfycbwJM9I_WS_nP4X4vfAAvsPRdsYMpqyk5rcfszUUMMCtYhaisrULmzYZAt4qVU3NaT2x/exec")) {
         evento.preventDefault();
         estado.textContent = "Falta configurar la URL de Google Apps Script en el código.";
         estado.className = "mensaje-form error";
